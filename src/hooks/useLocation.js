@@ -3,9 +3,7 @@ import { getGreatCircleBearing, getDistance as getGeolibDistance } from 'geolib'
 import locations from '../locations.json'
 
 const useLocation = () => {
-  const [myCoordinates, setMyCoordinates] = useState({
-
-  })
+  const [myCoordinates, setMyCoordinates] = useState({})
 
   const getDistance = (targetCoordinates) => {
     return getGeolibDistance(myCoordinates, targetCoordinates)

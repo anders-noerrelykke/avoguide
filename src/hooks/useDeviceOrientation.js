@@ -9,7 +9,6 @@ const useDeviceOrientation = () => {
       window.DeviceOrientationEvent.requestPermission().then((permission) => {
         if (permission === 'granted') {
           setDevicePermission({ status: 'granted', message: "Permission granted" })
-          // window.removeEventListener('click', clickEventListener)
           window.addEventListener('deviceorientation', orientationEventListener, true)
         } else {
           setDevicePermission({ status: 'denied', message: "Permission not granted" })
@@ -21,7 +20,7 @@ const useDeviceOrientation = () => {
   }
 
   const orientationEventListener = (e) => {
-    setOrientationData({ alpha: e.alpha, beta: e.beta, gamma: e.gamma, webkitCompassAccuracy: e.webkitCompassAccuracy, webkitCompassHeading: e.webkitCompassHeading })
+    setOrientationData({ alpha: e.alpha, beta: e.beta, gamma: e.gamma, accuracy: e.webkitCompassAccuracy, heading: e.webkitCompassHeading })
   }
 
   return { devicePermission, requestDevicePermission, orientationData }

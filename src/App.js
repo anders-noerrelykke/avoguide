@@ -9,6 +9,12 @@ const App = () => {
   const { locations, myCoordinates, getDistance, getDirection } = useLocation()
   const [destinationIndex, setDestinationIndex] = useState(0)
 
+  useState(() => {
+    if (localStorage.getItem('avoguide')) {
+      setDestinationIndex(localStorage.getItem('avoguide'))
+    }
+  }, [])
+
   return (
     <div className="App">
       {devicePermission.status === 'pending' ? (
@@ -19,17 +25,13 @@ const App = () => {
           <>
             <div className="wrapper compass_wrapper">
 
-              <img className="compass" src="/compass.png" alt="compass" style={{ transform: `rotate(${360 - orientationData.webkitCompassHeading}deg)` }} />
+              <img className="compass" src="/compass.png" alt="compass" style={{ transform: `rotate(${360 - orientationData.heading}deg)` }} />
             </div>
 
             <div className="wrapper arrow_wrapper">
-              {Object.keys(myCoordinates).length ?
-                (
-                  <>
-                    <img className="arrow" src="/arrow.webp" alt="arrow" style={{ transform: `rotate(${360 + getDirection(locations[destinationIndex].coordinates) - orientationData.webkitCompassHeading}deg)` }} />
-                  </>
-                )
-                : "Getting your location..."
+              {devicePermission.status === 'pending' ? "Henter kompas-data..." : devicePermission.status === 'denied' || devicePermission.status === 'unavailable' ? 'Din enhed har ikke adgang til kompas-data - prøv på din telefon!' :
+                <img className="arrow" src="/arrow.webp" alt="arrow" style={{ transform: `rotate(${360 + getDirection(locations[destinationIndex].coordinates) - orientationData.heading}deg)` }} />
+
               }
             </div>
             <div className="wrapper input_wrapper">
@@ -38,9 +40,12 @@ const App = () => {
                 : null
 
               }
-              <select value={destinationIndex} onChange={(event) => setDestinationIndex(event.target.value)}>
+              <select value={destinationIndex} onChange={(event) => {
+                localStorage.setItem('avoguide', event.target.value)
+                setDestinationIndex(event.target.value)
+              }}>
                 {locations.map((location, index) => {
-                  return <option value={index}>{location.selection}</option>
+                  return <option key={index} value={index}>{location.selection}</option>
                 }
                 )}
               </select>
