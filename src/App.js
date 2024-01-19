@@ -10,7 +10,7 @@ const App = () => {
   const [destinationIndex, setDestinationIndex] = useState(0)
 
   useState(() => {
-    if (localStorage.getItem('avoguide')) {
+    if (localStorage.getItem('avoguide') && locations.length < destinationIndex) {
       setDestinationIndex(localStorage.getItem('avoguide'))
     }
   }, [])
@@ -18,7 +18,10 @@ const App = () => {
   return (
     <div className="App">
       {devicePermission.status === 'pending' ? (
-        <div className="tap_wrapper" onClick={requestDevicePermission}><h1>AvoGuide!</h1></div>
+        <div className="tap_wrapper" onClick={requestDevicePermission}>
+          <h1>Avo<span className="h1-part">Guide</span></h1>
+          <label className="signature">@Anders Nørrelykke</label>
+        </div>
       ) :
         (
 
@@ -29,17 +32,16 @@ const App = () => {
             </div>
 
             <div className="wrapper arrow_wrapper">
-              {devicePermission.status === 'pending' ? "Henter kompas-data..." : devicePermission.status === 'denied' || devicePermission.status === 'unavailable' ? 'Din enhed har ikke adgang til kompas-data - prøv på din telefon!' :
-                <img className="arrow" src="/arrow.webp" alt="arrow" style={{ transform: `rotate(${360 + getDirection(locations[destinationIndex].coordinates) - orientationData.heading}deg)` }} />
-
+              {Object.keys(orientationData).length && Object.keys(myCoordinates) && locations[destinationIndex] && devicePermission.status === 'pending' ? "Henter kompas-data..." : devicePermission.status === 'denied' || devicePermission.status === 'unavailable' ? 'Din enhed har ikke adgang til kompas-data - prøv på din telefon!' :
+                <img className="arrow" src="/arrow.webp" alt="arrow" style={{ transform: `rotate(${360 + getDirection(locations[destinationIndex]?.coordinates) - orientationData.heading}deg)` }} />
               }
             </div>
             <div className="wrapper input_wrapper">
-              {Object.keys(myCoordinates).length ?
-                <h3>{getDistance(locations[destinationIndex].coordinates).toLocaleString()} meter</h3>
+              {Object.keys(myCoordinates).length && locations[destinationIndex]?.coordinates ?
+                <h3>{getDistance(locations[destinationIndex]?.coordinates).toLocaleString('da-DK')} meter</h3>
                 : null
-
               }
+              {locations && destinationIndex !== undefined && locations[destinationIndex] ? <h4>{locations[destinationIndex].name}</h4> : null}
               <select value={destinationIndex} onChange={(event) => {
                 localStorage.setItem('avoguide', event.target.value)
                 setDestinationIndex(event.target.value)

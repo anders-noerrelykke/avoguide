@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans';
+  font-family: 'Lato';
   font-size: larger;
   background-color: #00274e;
   color: #fff;
@@ -7,6 +7,32 @@ body {
   padding: 0;
   width: 100%;
   overflow: hidden;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 3em;
+  font-style: oblique;
+  border-bottom: 1px solid #fff;
+  margin: 20px;
+  padding: 20px 40px;
+}
+
+.h1-part {
+  font-weight: 200;
+}
+
+label.signature {
+  font-style: italic;
+  color: rgb(137, 137, 137);
+}
+
+hr {
+  background-color: #fff;
+}
+
+select {
+  max-width: 100%;
 }
 
 .tap_wrapper {
@@ -69,3 +95,24 @@ select::-ms-expand {
         animation: App-logo-spin infinite 20s linear;
     }
 } */
+
+body {
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+label.signature {
+  animation: fadeInAnimation ease 2.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -10,8 +10,6 @@ const useLocation = () => {
   }
 
   const getDirection = (targetCoordinates) => {
-    const direction = getGreatCircleBearing(myCoordinates, targetCoordinates)
-    console.log(direction)
     return getGreatCircleBearing(myCoordinates, targetCoordinates)
   }
 
