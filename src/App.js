@@ -32,7 +32,7 @@ const App = () => {
             </div>
 
             <div className="wrapper arrow_wrapper">
-              {Object.keys(orientationData).length && Object.keys(myCoordinates) && locations[destinationIndex] && devicePermission.status === 'pending' ? "Henter kompas-data..." : devicePermission.status === 'denied' || devicePermission.status === 'unavailable' ? 'Din enhed har ikke adgang til kompas-data - prøv på din telefon!' :
+              {Object.keys(orientationData).length && Object.keys(myCoordinates) && locations[destinationIndex] && devicePermission.status === 'pending' ? "Henter kompas-data..." : devicePermission.status === 'denied' || devicePermission.status === 'unavailable' ? 'Din enhed har ikke adgang til iOS-kompas-data - prøv på din telefon!' :
                 <img className="arrow" src="/arrow.webp" alt="arrow" style={{ transform: `rotate(${360 + getDirection(locations[destinationIndex]?.coordinates) - orientationData.heading}deg)` }} />
               }
             </div>
@@ -47,7 +47,7 @@ const App = () => {
                 setDestinationIndex(event.target.value)
               }}>
                 {locations.map((location, index) => {
-                  return <option key={index} value={index}>{location.selection}</option>
+                  return <option key={index} value={index}>{location.name}</option>
                 }
                 )}
               </select>
