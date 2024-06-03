@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: 'Lato';
   font-size: larger;
@@ -9,17 +13,20 @@ body {
   overflow: hidden;
 }
 
-h1 {
+h1,
+h2 {
   font-weight: 900;
   font-size: 3em;
   font-style: oblique;
-  border-bottom: 1px solid #fff;
-  margin: 20px;
-  padding: 20px 40px;
+  margin: 20px 20px 0 20px;
+  /* padding: 20px 40px 0 4px; */
 }
 
 .h1-part {
   font-weight: 200;
+  margin: 0 20px 20px 20px;
+  padding: 0 40px 20px 40px;
+  border-bottom: 1px solid #fff;
 }
 
 label.signature {
@@ -42,6 +49,7 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  line-height: 1;
 }
 
 .wrapper {

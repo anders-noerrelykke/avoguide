@@ -1,0 +1,51 @@
+[
+  {
+    "name": "The Place",
+    "coordinates": {
+      "latitude": 46.190778518987294,
+      "longitude": 6.777886525653251
+    }
+  },
+  {
+    "name": "Village Igloo",
+    "coordinates": {
+      "latitude": 46.185315,
+      "longitude": 6.776907
+    }
+  },
+  {
+    "name": "Résidence l'Hermine",
+    "coordinates": {
+      "latitude": 46.19133474885365,
+      "longitude": 6.778707457846492
+    }
+  },
+  {
+    "name": "Résidence Atria-Crozats",
+    "coordinates": {
+      "latitude": 46.193325165303804,
+      "longitude": 6.77608962200077
+    }
+  },
+  {
+    "name": "Résidence Les Intrets",
+    "coordinates": {
+      "latitude": 46.19126265783711,
+      "longitude": 6.776871922857215
+    }
+  },
+  {
+    "name": "Résidence Sassanka",
+    "coordinates": {
+      "latitude": 46.189373434533245,
+      "longitude": 6.7750682603230885
+    }
+  },
+  {
+    "name": "Mont Blanc",
+    "coordinates": {
+      "latitude": 45.83308,
+      "longitude": 6.86464
+    }
+  }
+]

@@ -1,51 +1,37 @@
 [
   {
-    "name": "The Place",
+    "name": "Ruby",
     "coordinates": {
-      "latitude": 46.190778518987294,
-      "longitude": 6.777886525653251
+      "latitude": 55.678418,
+      "longitude": 12.583294
     }
   },
   {
-    "name": "Village Igloo",
+    "name": "Lidkoeb",
     "coordinates": {
-      "latitude": 46.185315,
-      "longitude": 6.776907
+      "latitude": 55.6818,
+      "longitude": 12.5529
     }
   },
   {
-    "name": "Résidence l'Hermine",
+    "name": "Mikkeller Bar",
     "coordinates": {
-      "latitude": 46.19133474885365,
-      "longitude": 6.778707457846492
+      "latitude": 55.672037,
+      "longitude": 12.556745
     }
   },
   {
-    "name": "Résidence Atria-Crozats",
+    "name": "1105",
     "coordinates": {
-      "latitude": 46.193325165303804,
-      "longitude": 6.77608962200077
+      "latitude": 55.67862,
+      "longitude": 12.57594
     }
   },
   {
-    "name": "Résidence Les Intrets",
+    "name": "Curfew",
     "coordinates": {
-      "latitude": 46.19126265783711,
-      "longitude": 6.776871922857215
-    }
-  },
-  {
-    "name": "Résidence Sassanka",
-    "coordinates": {
-      "latitude": 46.189373434533245,
-      "longitude": 6.7750682603230885
-    }
-  },
-  {
-    "name": "Mont Blanc",
-    "coordinates": {
-      "latitude": 45.83308,
-      "longitude": 6.86464
+      "latitude": 55.67821,
+      "longitude": 12.55832
     }
   }
 ]

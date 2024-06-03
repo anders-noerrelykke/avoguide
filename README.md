@@ -1,10 +1,8 @@
-# AvoGuide
+# Cocktail Compass
 
 A fun, little browser-based compass application for finding direction and distance from your current position to a variety of hotspots in Avoriaz!
 
 https://github.com/anders-noerrelykke/avoguide/assets/33314865/34d74972-31fb-4bb8-81e6-a2183753f3c6
-
-
 
 ## Available Scripts
 
