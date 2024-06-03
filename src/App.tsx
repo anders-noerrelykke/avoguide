@@ -20,10 +20,6 @@ const App = () => {
     }
   }, [])
 
-  useEffect(() => {
-    alert(JSON.stringify(devicePermission))
-  }, [devicePermission])
-
   return (
     <div className="App">
       {devicePermission.status === 'awaiting' ? (
@@ -39,14 +35,13 @@ const App = () => {
         <>
           <Compass orientationData={orientationData} />
           <div className="wrapper arrow_wrapper">
-            {Object.keys(orientationData).length &&
-            Object.keys(myCoordinates) &&
-            locations[destinationIndex] ? (
-              'Henter kompas-data...'
-            ) : devicePermission.status === 'denied' ||
-              devicePermission.status === 'unavailable' ? (
+            {devicePermission.status === 'denied' ||
+            devicePermission.status === 'unavailable' ? (
               'Din enhed har ikke adgang til iOS-kompas-data - prøv på din telefon!'
-            ) : (
+            ) : devicePermission.status === 'granted' &&
+              Object.keys(orientationData).length &&
+              Object.keys(myCoordinates) &&
+              locations[destinationIndex] ? (
               <img
                 className="arrow"
                 src="/arrow.webp"
@@ -55,6 +50,8 @@ const App = () => {
                   transform: `rotate(${360 + getDirection(locations[destinationIndex]?.coordinates) - orientationData.heading}deg)`,
                 }}
               />
+            ) : (
+              'Henter kompas-data...'
             )}
           </div>
           <div className="wrapper input_wrapper">
