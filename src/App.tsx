@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import useDeviceOrientation from './hooks/useDeviceOrientation'
@@ -18,7 +17,7 @@ const App = () => {
     ) {
       setDestinationIndex(Number(localStorage.getItem('cocktail_compass')))
     }
-  }, [])
+  }, [destinationIndex, locations.length])
 
   return (
     <div className="App">
